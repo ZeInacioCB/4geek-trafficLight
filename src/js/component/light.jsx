@@ -4,19 +4,14 @@ import React from "react";
 const Light = (props) => {
 
     let lightenUp;
-    props.lightenUp ? lightenUp = 1 : lightenUp = 0.25;
+    props.lightenUp ? lightenUp = "lightOn" : lightenUp = "lightOff";
 
-    const lightStyle = {
-        height: "15rem",
-        width: "15rem",
-        // borderRadius: "10% 30% 50% 70%",
+    const lightColor = {
         color: `${props.color}`,
-        background: `${props.color}`,
-        margin: "1rem",
-        opacity: `${lightenUp}`
+        background: `${props.color}`
     }
 
-	return <div className="text-center mx-auto rounded-circle" style={lightStyle} onClick={props.onClick} />
+	return <div className={`text-center mx-auto rounded-circle lightStyle ${lightenUp}`} style={lightColor} onClick={props.onClick} />
 };
 
 export default Light;

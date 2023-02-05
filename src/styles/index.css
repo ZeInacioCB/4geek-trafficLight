@@ -10,3 +10,19 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.lightStyle {
+    width: 15rem;
+    height: 15rem;
+    margin: 1rem;
+}
+
+.lightOff {
+    opacity: 0.25;
+}
+
+.lightOn {
+    opacity: 1;
+    box-shadow: 0 0 50px 30px;
+
+}
