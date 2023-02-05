@@ -7,7 +7,8 @@ const TrafficLight = () => {
 	const [redLight, setRedLight] = useState(false);
 	const [yellowLight, setYellowLight] = useState(false);
 	const [greenLight, setGreenLight] = useState(false);
-	const [color, setColor] = useState("red")
+	const [color, setColor] = useState("red");
+	const [purpleDisplay, setPurpleDisplay] = useState({display: "none"});
 
 	const redLightToggleHandler = () => {
 		if (!redLight) {
@@ -67,11 +68,28 @@ const TrafficLight = () => {
 			};
 	  }, [color]);
 
+	  const displayPurpleToggler = () => {
+		if (purpleDisplay.display == "none") {
+			setPurpleDisplay({display: "block"})
+		} else {
+			setPurpleDisplay({display: "none"})
+		}
+	  }
+
 	return (
-		<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "25rem"}}>
-			<Light color={"red"} lightenUp={redLight} onClick={redLightToggleHandler} />
-			<Light color={"yellow"} lightenUp={yellowLight} onClick={yellowLightToggleHandler}  />
-			<Light color={"lightgreen"} lightenUp={greenLight} onClick={greenLightToggleHandler}   />
+		<div>
+			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "20rem"}}>
+				<button className="btn btn-secondary btn-lg m-2">Cycle</button>
+				<button className="btn btn-secondary btn-lg m-2" onClick={displayPurpleToggler} >Purple</button>
+			</div>
+			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "20rem"}}>
+				<Light color={"red"} lightenUp={redLight} onClick={redLightToggleHandler} />
+				<Light color={"yellow"} lightenUp={yellowLight} onClick={yellowLightToggleHandler}  />
+				<Light color={"lightgreen"} lightenUp={greenLight} onClick={greenLightToggleHandler}   />
+				<div style={purpleDisplay} >
+					<Light color={"fuchsia"} lightenUp={greenLight} onClick={greenLightToggleHandler}  />
+				</div>
+			</div>
 		</div>
 	);
 };
