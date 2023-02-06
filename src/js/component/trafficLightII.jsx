@@ -3,7 +3,7 @@ import Light from "./light.jsx";
 
 
 //create your first component
-const TrafficLight = () => {
+const TrafficLightII = () => {
 	const [redLight, setRedLight] = useState(false);
 	const [yellowLight, setYellowLight] = useState(false);
 	const [greenLight, setGreenLight] = useState(false);
@@ -78,11 +78,11 @@ const TrafficLight = () => {
 
 	return (
 		<div>
-			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "25vw"}}>
+			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "20rem"}}>
 				<button className="btn btn-secondary btn-lg m-2">Cycle</button>
 				<button className="btn btn-secondary btn-lg m-2" onClick={displayPurpleToggler} >Purple</button>
 			</div>
-			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "25vw"}}>
+			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "20rem"}}>
 				<Light color={"red"} lightenUp={redLight} onClick={redLightToggleHandler} />
 				<Light color={"yellow"} lightenUp={yellowLight} onClick={yellowLightToggleHandler}  />
 				<Light color={"lightgreen"} lightenUp={greenLight} onClick={greenLightToggleHandler}   />
@@ -94,4 +94,4 @@ const TrafficLight = () => {
 	);
 };
 
-export default TrafficLight;
+export default TrafficLightII;
