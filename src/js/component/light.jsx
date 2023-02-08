@@ -11,7 +11,7 @@ const Light = (props) => {
         background: `${props.color}`
     }
 
-	return <div className={`text-center mx-auto rounded-circle lightStyle ${lightenUp}`} style={lightColor} onClick={props.onClick} />
+	return <div className={`text-center mx-auto rounded-circle lightStyle ${lightenUp}`} style={lightColor} onClick={props.onClick} name={props.color} />
 };
 
 export default Light;
