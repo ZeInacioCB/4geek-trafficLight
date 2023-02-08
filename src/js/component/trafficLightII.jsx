@@ -42,7 +42,7 @@ const TrafficLightII = () => {
 	};
 
 	useEffect(() => {
-		console.log(`In 3s it will change to: ${color}`);
+		//console.log(`In 3s it will change to: ${color}`);
 		const interval = setInterval(() => {
 			if (color == "red") {
 				setColor("yellow");
@@ -60,10 +60,10 @@ const TrafficLightII = () => {
 				setYellowLight(false);
 				setGreenLight(true);
 			}
-			console.log(`Current IntervalID: ${interval}`)
+			//console.log(`Current IntervalID: ${interval}`)
 		  }, 3000);
 		  return () => {
-			console.log(`Clearing IntervalID: ${interval}`)
+			//console.log(`Clearing IntervalID: ${interval}`)
 			clearInterval(interval)
 			};
 	  }, [color]);
@@ -82,7 +82,7 @@ const TrafficLightII = () => {
 				<button className="btn btn-secondary btn-lg m-2">Cycle</button>
 				<button className="btn btn-secondary btn-lg m-2" onClick={displayPurpleToggler} >Purple</button>
 			</div>
-			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "20rem"}}>
+			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "25vw"}}>
 				<Light color={"red"} lightenUp={redLight} onClick={redLightToggleHandler} />
 				<Light color={"yellow"} lightenUp={yellowLight} onClick={yellowLightToggleHandler}  />
 				<Light color={"lightgreen"} lightenUp={greenLight} onClick={greenLightToggleHandler}   />

@@ -7,6 +7,10 @@ import "../styles/index.css";
 
 //import your own components
 import TrafficLight from "./component/trafficLight.jsx";
+import TrafficLightPage from "./component/trafficLightPage.jsx";
 
 //render your react application
-ReactDOM.render(<TrafficLight />, document.querySelector("#app"));
+ReactDOM.render(
+    <TrafficLightPage />, 
+    document.querySelector("#app")
+);
