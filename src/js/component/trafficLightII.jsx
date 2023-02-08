@@ -78,8 +78,7 @@ const TrafficLightII = () => {
 
 	return (
 		<div>
-			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "20rem"}}>
-				<button className="btn btn-secondary btn-lg m-2">Cycle</button>
+			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "25vw"}}>
 				<button className="btn btn-secondary btn-lg m-2" onClick={displayPurpleToggler} >Purple</button>
 			</div>
 			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "25vw"}}>
