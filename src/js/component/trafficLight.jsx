@@ -4,45 +4,46 @@ import Light from "./light.jsx";
 
 //create your first component
 const TrafficLight = (props) => {
-
-	const [color, setColor] = useState("red");
 	const [lightsObject, setLightsObject] = useState({
 		"red": true,
 		"yellow": false,
-		"green": false
-	});
-	
+		"lightgreen": false
+	});	
 
-	useEffect(() => {
-		//console.log(`In 3s it will change to: ${color}`);
+	useEffect(() => {	
 		const interval = setInterval(() => {
-			if (color == "red") {
-				setColor("yellow");
-				setRedLight(true);
-				setYellowLight(false);
-				setGreenLight(false);
-			} else if (color == "yellow") {
-				setColor("green");
-				setRedLight(false);
-				setYellowLight(true);
-				setGreenLight(false);
-			} else {
-				setColor("red");
-				setRedLight(false);
-				setYellowLight(false);
-				setGreenLight(true);
-			}
-			//console.log(`Current IntervalID: ${interval}`)
-		  }, 3000);
-		  return () => {
-			//console.log(`Clearing IntervalID: ${interval}`)
-			clearInterval(interval)
+			// defining the variables to get the current and next colors
+			let displayedColors = Object.keys(lightsObject);
+			let currentColorIndex, nextColorIndex;
+			
+	
+			// loop to find the value index values depending on which light is currently on (aka true)
+			for (const color in lightsObject) {
+				if (lightsObject[color]) {
+					currentColorIndex = displayedColors.indexOf(color);
+					nextColorIndex = currentColorIndex + 1;
+					if (nextColorIndex >= displayedColors.length) nextColorIndex = 0;
+				} 
 			};
-	  }, [color]);
+		
+			// another loop to define the new state every 3s
+			let newState = {};
+			let newLightedColor = displayedColors[nextColorIndex];
+			for (const color in lightsObject) {
+				if (color == newLightedColor) {
+					newState[color] = true;
+				} else {
+					newState[color] = false;
+				}
+			};
+			setLightsObject(newState);
+			
+		  }, 3000);
+		  return () => clearInterval(interval);
+	  }, [lightsObject]);
 
 
-
-	let colorsArr = lightsObject;
+	// handling the light click to turn them on and off
 	const clickHandler = (event) => {
 		// defining the key color that is being clicked using event.target
 		const keyColor = event.target.attributes.name.value;
@@ -59,15 +60,33 @@ const TrafficLight = (props) => {
 		// setting the new state with the newly created object
 		setLightsObject(newState);
 	};
-	
 
+	// handling the purple button to show and hide the purple color
+	const purpleToggle = () => {
+        if (!Object.keys(lightsObject).includes("fuchsia")) {
+            setLightsObject((prev) => ({
+                ...prev,
+                "fuchsia": false
+            }));
+        } else {
+            setLightsObject(() => ({
+				"red": true,
+				"yellow": false,
+				"lightgreen": false
+			}));
+        }
+    }
+
+	// builduuing the trafficLight component for all the colors available	
 	let lightsComponentBuilder = Object.keys(lightsObject).map((colorName) => {
-	return <Light key={colorName} color={colorName} name={colorName} lightenUp={colorsArr[colorName]} onClick={clickHandler}  />
+		return <Light key={colorName} color={colorName} name={colorName} lightenUp={lightsObject[colorName]} onClick={clickHandler}  />
 	});
-
 
 	return (
 		<div>
+			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "25vw"}}>
+				<button className="btn btn-secondary btn-lg m-2" onClick={purpleToggle}>Purple</button>
+			</div>
 			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "25vw"}}>
 				{lightsComponentBuilder}
 			</div>
