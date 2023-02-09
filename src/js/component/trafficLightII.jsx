@@ -78,10 +78,10 @@ const TrafficLightII = () => {
 
 	return (
 		<div>
-			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "25vw"}}>
+			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "15vw"}}>
 				<button className="btn btn-secondary btn-lg m-2" onClick={displayPurpleToggler} >Purple</button>
 			</div>
-			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "25vw"}}>
+			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "15vw"}}>
 				<Light color={"red"} lightenUp={redLight} onClick={redLightToggleHandler} />
 				<Light color={"yellow"} lightenUp={yellowLight} onClick={yellowLightToggleHandler}  />
 				<Light color={"lightgreen"} lightenUp={greenLight} onClick={greenLightToggleHandler}   />

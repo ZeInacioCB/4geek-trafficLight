@@ -84,10 +84,10 @@ const TrafficLight = (props) => {
 
 	return (
 		<div>
-			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "25vw"}}>
+			<div className="bg-black m-auto py-3 mt-2 rounded-5 d-flex justify-content-center" style={{width: "15vw"}}>
 				<button className="btn btn-secondary btn-lg m-2" onClick={purpleToggle}>Purple</button>
 			</div>
-			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "25vw"}}>
+			<div className="bg-black m-auto py-4 mt-2 rounded-5" style={{width: "15vw"}}>
 				{lightsComponentBuilder}
 			</div>
 		</div>
